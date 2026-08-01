@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import LoveLetter from "./LoveLetter";
 import couplePhoto from "../assets/photos/photo1.png";
+import Envelope from "./Envelope";
 
 function Hero() {
   const typedRef = useRef(null);
@@ -28,31 +29,30 @@ function Hero() {
   }
 
   return (
-    <section className="hero">
-      <div className="hero-content">
-        <img    
-            src={couplePhoto}
-            autoPlay
-            muted
-            loop
-            alt="Us"
-            className="hero-photo"
-        />
+  <section className="hero">
 
-        <h1 ref={typedRef}></h1>
+    <div className="hero-overlay"></div>
 
-        <p>
-          Every line of this website was made with love,
-          just for you.
-        </p>
+    <div className="hero-content">
 
-        <button onClick={() => setOpen(true)}>
-          Open My Heart ❤️
-        </button>
+      <p className="made">
+        Made with ❤️
+      </p>
 
-      </div>
-    </section>
-  );
+      <h1 ref={typedRef}></h1>
+
+      <p className="subtitle">
+        Every heartbeat...
+        Every memory...
+        Every word here is only for you.
+      </p>
+
+      <Envelope onOpen={() => setOpen(true)} />
+
+    </div>
+
+  </section>
+);
 }
 
 export default Hero;
